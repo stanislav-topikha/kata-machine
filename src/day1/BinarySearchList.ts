@@ -14,7 +14,7 @@ export default function bs_list(haystack: number[], needle: number): boolean {
       continue;
     }
 
-    lo = mid + 1;g
+    lo = mid + 1;
   } while(lo < hi)
 
   return false;
