@@ -2,24 +2,23 @@ export default function bfs(head: BinaryNode<number>, needle: number): boolean {
   let q = [head];
 
   while(q.length) {
-    let tmpQ = [];
+    const next = q.shift()
 
-    for (const node of q) {
-      if (node.value === needle) {
-        return true;
-      }
-
-      if (node.left) {
-        tmpQ.push(node.left);
-      }
-
-      if (node.right) {
-        tmpQ.push(node.right);
-      }
+    if (!next) {
+      return false;
     }
 
-    q = tmpQ;
-    tmpQ = [];
+    if (next.value === needle) {
+      return true;
+    }
+
+    if (next.left) {
+      q.push(next.left);
+    }
+
+    if (next.right) {
+      q.push(next.right);
+    }
   }
 
   return false;
